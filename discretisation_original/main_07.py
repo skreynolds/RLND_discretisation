@@ -43,7 +43,9 @@ if __name__ == '__main__':
 	#################################################################
 
 	# TODO: Create a new agent with a different state space grid
-	state_grid_new = create_uniform_grid(?, ?, bins=(?, ?))
+	low = env.observation_space.low
+	high = env.observation_space.high
+	state_grid_new = create_uniform_grid(low, high, bins=(20, 20))
 	q_agent_new = QLearningAgent(env, state_grid_new)
 	q_agent_new.scores = []  # initialize a list to store scores for this agent
 
@@ -68,13 +70,13 @@ if __name__ == '__main__':
 	score = 0
 	img = plt.imshow(env.render(mode='rgb_array'))
 	for t in range(1000):
-    	action = q_agent_new.act(state, mode='test')
-    	img.set_data(env.render(mode='rgb_array')) 
-    	plt.axis('off')
-    	state, reward, done, _ = env.step(action)
-    	score += reward
-    	if done:
-        	print('Score: ', score)
-        	break
+		action = q_agent_new.act(state, mode='test')
+		img.set_data(env.render(mode='rgb_array')) 
+		plt.axis('off')
+		state, reward, done, _ = env.step(action)
+		score += reward
+		if done:
+			print('Score: ', score)
+			break
         
 	env.close()

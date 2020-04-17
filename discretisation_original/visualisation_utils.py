@@ -44,7 +44,8 @@ def plot_scores(scores, rolling_window=100):
     """Plot scores and optional rolling mean using specified window."""
     plt.plot(scores); plt.title("Scores");
     rolling_mean = pd.Series(scores).rolling(rolling_window).mean()
-    plt.plot(rolling_mean);
+    plt.plot(rolling_mean)
+    plt.show()
     return rolling_mean
 
 
@@ -64,3 +65,5 @@ def plot_q_table(q_table):
     ax.set_title("Q-table, size: {}".format(q_table.shape))
     ax.set_xlabel('position')
     ax.set_ylabel('velocity')
+    
+    plt.show()
