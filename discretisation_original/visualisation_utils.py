@@ -1,5 +1,6 @@
 # import required libraries
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.collections as mc
 
@@ -37,3 +38,29 @@ def visualize_samples(samples, discretized_samples, grid, low=None, high=None):
 	ax.legend(['original', 'discretized'])
 
 	plt.show()
+
+
+def plot_scores(scores, rolling_window=100):
+    """Plot scores and optional rolling mean using specified window."""
+    plt.plot(scores); plt.title("Scores");
+    rolling_mean = pd.Series(scores).rolling(rolling_window).mean()
+    plt.plot(rolling_mean);
+    return rolling_mean
+
+
+def plot_q_table(q_table):
+    """Visualize max Q-value for each state and corresponding action."""
+    q_image = np.max(q_table, axis=2)       # max Q-value for each state
+    q_actions = np.argmax(q_table, axis=2)  # best action for each state
+
+    fig, ax = plt.subplots(figsize=(10, 10))
+    cax = ax.imshow(q_image, cmap='jet');
+    cbar = fig.colorbar(cax)
+    for x in range(q_image.shape[0]):
+        for y in range(q_image.shape[1]):
+            ax.text(x, y, q_actions[x, y], color='white',
+                    horizontalalignment='center', verticalalignment='center')
+    ax.grid(False)
+    ax.set_title("Q-table, size: {}".format(q_table.shape))
+    ax.set_xlabel('position')
+    ax.set_ylabel('velocity')
