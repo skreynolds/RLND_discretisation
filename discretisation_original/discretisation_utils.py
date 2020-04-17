@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # import required libraries
 import numpy as np
 
