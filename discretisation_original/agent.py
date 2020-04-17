@@ -1,6 +1,9 @@
 # import required libraries
 import numpy as np
 
+# import the discretisation utils library
+from discretisation_utils import *
+
 #################################################
 # q-learning agent class
 #################################################
@@ -35,7 +38,8 @@ class QLearningAgent:
 	def preprocess_state(self, state):
 		"""Map a continuous state to its discretized representation."""
 		# TODO: Implement this
-		pass
+		discretised_state = discretise(state, self.state_grid)
+		return tuple(discretised_state)
 
 	def reset_episode(self, state):
 		"""Reset variables for a new episode."""

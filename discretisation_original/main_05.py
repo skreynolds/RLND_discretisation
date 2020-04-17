@@ -37,6 +37,11 @@ if __name__ == '__main__':
 	env = gym.make('MountainCar-v0')
 	env.seed(505);
 
+	#################################################################
+	# Required from main_04.py
+	#################################################################
+
+	state_grid = create_uniform_grid(env.observation_space.low, env.observation_space.high, bins=(10, 10))
 
 	#################################################################
 	# Q-Learning

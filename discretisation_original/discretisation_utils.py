@@ -28,7 +28,7 @@ def create_uniform_grid(low, high, bins=(10,10)):
 
 	for i in range(2):
 		discretised_array.append(np.linspace(low[i], high[i], bins[i]+1)[1:-1])
-
+	
 	for l, h, b, splits in zip(low, high, bins, discretised_array):
 		print("[{}, {}] / {} => {}".format(l, h, b, splits))
 
