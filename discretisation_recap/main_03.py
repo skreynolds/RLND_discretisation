@@ -24,14 +24,15 @@ if __name__ == '__main__':
 	# Discretise the State Space with a Uniform Grid
 	#################################################################
 	
-	""" Uncomment when testing
+	
 	# TEST 1: create_uniform_grid  
 	low = [-1.0, -5.0]
 	high = [1.0, 5.0]
-	create_uniform_grid(low, high) #[test]
-	"""
+	test = create_uniform_grid(low, high) #[test]
+	
+	print(test)
 
-	""" Uncomment when testing
+	
 	# TEST 2: discretize
 	# Test with a simple grid and some samples
 	grid = create_uniform_grid([-1.0, -5.0], [1.0, 5.0])
@@ -47,4 +48,3 @@ if __name__ == '__main__':
 	discretized_samples = np.array([discretise(sample, grid) for sample in samples])
 	print("\nSamples:", repr(samples), sep="\n")
 	print("\nDiscretized samples:", repr(discretized_samples), sep="\n")
-	"""

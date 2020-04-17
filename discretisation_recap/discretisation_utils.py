@@ -25,8 +25,10 @@ def create_uniform_grid(low, high, bins=(10,10)):
 	'''
 
 	# TODO: Implement this
-	pass
+	low_array = np.linspace(low[0], high[0], bins[0] + 1)[1:-1]
+	high_array = np.linspace(low[1], high[1], bins[1] + 1)[1:-1]
 
+	return [low_array, high_array]
 
 def discretise(sample, grid):
 	"""Discretize a sample as per given grid.
@@ -44,4 +46,10 @@ def discretise(sample, grid):
 	    A sequence of integers with the same number of dimensions as sample.
 	"""
 	# TODO: Implement this
-	pass
+	
+	digitized_values = []
+
+	for s, g in zip(sample, grid):
+		digitized_values.append(np.digitize(s,g))
+
+	return digitized_values
