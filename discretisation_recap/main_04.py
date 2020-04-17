@@ -61,7 +61,7 @@ if __name__ == '__main__':
 	# Create a grid to discretize the state space
 	state_grid = create_uniform_grid(env.observation_space.low, env.observation_space.high, bins=(10, 10))
 	
-	state_grid
+	print(state_grid)
 
 	# Obtain some samples from the space, discretize them, and then visualize them
 	state_samples = np.array([env.observation_space.sample() for i in range(10)])

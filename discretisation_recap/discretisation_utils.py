@@ -25,10 +25,8 @@ def create_uniform_grid(low, high, bins=(10,10)):
 	'''
 
 	# TODO: Implement this
-	low_array = np.linspace(low[0], high[0], bins[0] + 1)[1:-1]
-	high_array = np.linspace(low[1], high[1], bins[1] + 1)[1:-1]
+	return [np.linspace(low[i], high[i], bins[i] + 1) for i in range(len(bins))]
 
-	return [low_array, high_array]
 
 def discretise(sample, grid):
 	"""Discretize a sample as per given grid.
